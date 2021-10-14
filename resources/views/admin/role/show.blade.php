@@ -36,8 +36,8 @@
                         </td>
                     </tr>
                     @endforeach
-                
-                    
+
+
                 </tbody>
                 </table>
                 {{-- url('admin/user/create') --}}

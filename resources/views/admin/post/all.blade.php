@@ -18,7 +18,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    
+
                     @foreach ($posts as $post)
                     <tr>
                         <td>{{$post->id}}</td>
@@ -39,14 +39,14 @@
                         </td>
                     </tr>
                     @endforeach
-                
-                    
+
+
                 </tbody>
                 </table>
                 {{-- url('admin/user/create') --}}
             </div>
         </div>
     </div>
-        <a href="{{route('post.create')}}" class="btn btn-primary pull-left">Add Post<div class="ripple-container"></div></a>
+        <a href="{{route('post.create')}}" class="btn btn-primary pull-left">Add User<div class="ripple-container"></div></a>
 </div>
 @endsection

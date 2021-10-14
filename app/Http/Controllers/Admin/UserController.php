@@ -71,7 +71,7 @@ class UserController extends Controller
         User::create([
             'name' => $request->name ,
             'email' => $request->email ,
-            'password' => Hash::make($request->password), 
+            'password' => Hash::make($request->password),
             'remember_token' => $request->_token,
             'role_id' => $request->role,
         ]);
@@ -129,7 +129,7 @@ class UserController extends Controller
         $user = User::findOrFail($id);
         $user->update([
             'name' => $request->name ,
-            'email' => $request->email 
+            'email' => $request->email
         ]);
         return redirect()->back();
     }
@@ -154,4 +154,13 @@ class UserController extends Controller
     //         }
     //     ];
     // }
+    public function getPost($id){
+
+        $post = User::findOrFail($id)->load([
+            'post'=>function($query){
+                $query->select('id','image','title','description','name','auth_name');
+            }
+        ])->where('id',$id)->get();
+        return response()->json($post);
+    }
 }
